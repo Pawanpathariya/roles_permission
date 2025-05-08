@@ -15,7 +15,7 @@ const DashboardTopbar: React.FC = () => {
       <div className="flex justify-end items-center mr-4 md:mr-10">
        
         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
-          onClick={() => { localStorage.clear(), router.push('/Admin') }  }>
+          onClick={() => { localStorage.clear(), router.push('/') }  }>
           Logout
         </button>
       </div>
