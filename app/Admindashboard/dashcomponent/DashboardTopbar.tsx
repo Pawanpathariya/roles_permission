@@ -8,7 +8,7 @@ const DashboardTopbar: React.FC = () => {
   return (
     <div className="bg-gray-700 p-4 fixed top-0 left-0 w-full h-16 flex justify-between items-center">
       <h1 className="text-white text-2xl font-semibold ml-4 md:ml-10 pl-4">
-        <Link href="/Admin" legacyBehavior>
+        <Link href="/Admin" >
           Admin Dashboard
         </Link>
       </h1>
