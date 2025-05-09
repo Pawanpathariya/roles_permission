@@ -3,40 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaHome, FaEdit, FaUser } from 'react-icons/fa';
 import { BsDisplay, BsFillCartFill } from 'react-icons/bs';
-import { CiSearch } from 'react-icons/ci';
-import { defineAbilitiesFor } from '../../lib/casl/ability'; 
-import { Can } from '@casl/react';
-import { createContextualCan } from '@casl/react';
-import { createContext } from 'react';
-const AbilityContext =createContext();
-
+import {CanComponent} from '../../lib/casl/ability'
 const Sidebar = () => {
-  const [ability, setAbility] = useState(null);
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (!storedUser) return;
-
-    const user = JSON.parse(storedUser);
-    console.log('User Role:', user.role); 
-    console.log('User Permissions:', user.role.permissions); 
-    
-    const abilityInstance = defineAbilitiesFor(user);
-    setAbility(abilityInstance);  
-  }, []);
-
-  const CanComponent = createContextualCan(AbilityContext.Consumer);
-
-  if (!ability) return null; 
 
   return (
     <>
-      <AbilityContext.Provider value={ability}>
+    
         <button
           className="fixed top-4 left-4 z-20 text-white bg-[#212529] p-2 rounded"
           onClick={toggleSidebar}
@@ -115,7 +93,6 @@ const Sidebar = () => {
           </div>
         </div>
         {isOpen ? <div className="ml-64"></div> : null}
-      </AbilityContext.Provider>
     </>
   );
 };
