@@ -23,17 +23,16 @@ const Sidebar = () => {
     if (!storedUser) return;
 
     const user = JSON.parse(storedUser);
-    console.log('User Role:', user.role); // Logs user role
-    console.log('User Permissions:', user.role.permissions); // Logs user permissions
+    console.log('User Role:', user.role); 
+    console.log('User Permissions:', user.role.permissions); 
     
-    // Pass the user permissions to the ability instance
     const abilityInstance = defineAbilitiesFor(user);
-    setAbility(abilityInstance);  // Set the ability instance
+    setAbility(abilityInstance);  
   }, []);
 
   const CanComponent = createContextualCan(AbilityContext.Consumer);
 
-  if (!ability) return null; // Ensure ability is loaded before rendering
+  if (!ability) return null; 
 
   return (
     <>
