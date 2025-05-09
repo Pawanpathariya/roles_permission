@@ -119,7 +119,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/Admindashboard/page.jsx"  ],
+, "app/Admindashboard/page.jsx", "app/Admindashboard/dashcomponent/Sidebar.jsx", "app/Admindashboard/dashcomponent/DashboardTopbar.jsx"  ],
   "exclude": [
     "node_modules"
   ]

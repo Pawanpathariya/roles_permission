@@ -15,7 +15,11 @@ const handleSubmit = async (e) => {
             email,
             password
         })
-     
+        if(!response.data.user.role){
+          alert("role not assign yet")
+          return;
+        }
+     localStorage.setItem('user', JSON.stringify(response.data.user))
       router.push('/Admindashboard')
     } catch (error) {
       console.error('Error:', error)

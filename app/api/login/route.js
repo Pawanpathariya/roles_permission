@@ -10,6 +10,9 @@ export async function POST(req) {
       where: {
         email: email,
       },
+      include: {
+        role: true,
+      },
     });
     if (!user) {
       return Response.json({ error: 'User not found' }, { status: 404 });
@@ -18,7 +21,7 @@ export async function POST(req) {
       return Response.json({ error: 'Invalid password' }, { status: 401 });
     }
 
-    return Response.json({ message: 'User Login successfully' }, { status: 200 });
+    return Response.json({ message: 'User Login successfully', user }, { status: 200 });
   } catch (error) {
     console.error(error);
     return Response.json({ error: 'Failed to Register' }, { status: 500 });
